@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SmartBizSystems Africa helps small businesses in Kenya automate workflows, boost sales, and create mobile-friendly websites that convert." />
+  <title>smartbizsystems.africa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="images/favicon.png.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SmartBizSystems",
+  "url": "https://smartbizsystems.africa",
+  "description": "We help SMEs in Kenya automate tasks, grow digitally, and build high-converting websites.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmartBizSystems",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://smartbizsystems.africa/images/favicon.png.png"
+    }
+  }
+}
+</script>
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">smartbizsystems.africa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog/top-digital-trends-2025.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-warning text-dark px-3" href="one-page-site-builder.html">Get a Website</a></li>
+
+          <a href="#smartbizbot" class="btn btn-outline-light">Talk to SmartBizBot</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg d-flex align-items-center text-white text-center">
+    <div class="container px-3">
+      <h1 class="display-4 fw-bold">We Don’t Just Build Websites — We Automate Kenyan Hustles.</h1>
+      <p class="lead">Built for clinics, SACCOs, law firms & side hustles — we design, automate, and simplify your business online.</p>
+      <a href="contact.html" class="btn btn-light btn-lg mt-3">Get a Free Audit</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 class="mb-4">Why Automate Your Business?</h2>
+      <p class="text-muted mb-5">Simple tools. Big results. Let automation work while you rest.</p>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5>✅ Save Time</h5>
+          <p>No more repeating the same tasks. Automation handles bookings, reminders, and follow-ups.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>📈 Boost Sales</h5>
+          <p>Follow up with every lead instantly. Turn inquiries into paying customers without lifting a finger.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>📱 Look Professional</h5>
+          <p>Stand out with fast replies, organized systems, and consistent communication.</p>
+          <a href="automation.html">Learn how automation works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call to Action -->
+  <section class="py-5 bg-light text-center">
+    <div class="container">
+      <h3 class="mb-3">Ready to Automate Your Business?</h3>
+      <p>Whether you're a salon owner, retailer, or real estate agent — automation is your new assistant.</p>
+      <a href="services.html" class="btn btn-primary btn-lg">Explore Our Services</a>
+    </div>
+  </section>
+
+
+<section class="py-5 bg-light text-center" id="smartbizbot">
+  <div class="container" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary" style="color: #03045e;">💬 Chat with SmartBizBot</h2>
+    <div class="chat-box border rounded p-3 mb-3 bg-white text-start" id="chatBox" style="height: 300px; overflow-y: auto;"></div>
+
+    <form id="botForm">
+      <div class="mb-2">
+        <input type="text" id="userName" placeholder="Your Name" class="form-control" required>
+      </div>
+      <div class="mb-2">
+        <textarea id="userMessage" placeholder="Ask anything..." class="form-control" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning w-100" style="background-color: #ffba08; border: none; color: #03045e;">
+        🚀 Send to SmartBizBot
+      </button>
+      <div id="botReply" class="alert alert-info mt-3 d-none text-start rounded" style="background-color: #e0f0ff; border-color: #0077b6; color: #03045e;"></div>
+    </form>
+  </div>
+</section>
+
+
+<script>
+  const form = document.getElementById("botForm");
+  const replyBox = document.getElementById("botReply");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    replyBox.classList.remove("d-none");
+    replyBox.innerText = "⏳ SmartBizBot is thinking...";
+
+    const name = document.getElementById("userName").value;
+    const message = document.getElementById("userMessage").value;
+
+    const res = await fetch("https://smartbizsystemes.app.n8n.cloud/webhook-test/smartbizbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, message })
+    });
+
+    const data = await res.json();
+    replyBox.innerText = data.choices?.[0]?.message?.content || data.message || "⚠️ Something went wrong. Please try again.";
+  });
+</script>
+
+
+  
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">What Others Are Saying</h2>
+
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+
+        <!-- Testimonial 1 -->
+        <div class="carousel-item active">
+          <div class="d-flex flex-column align-items-center px-3 px-md-5">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/person-circle.svg"
+                 alt="Grace M." width="80" height="80" class="mb-3 rounded-circle">
+            <p class="lead fw-normal fst-italic">“We needed a simple site for our new clinic — SmartBiz built and launched it in 2 days. Patients can now book via WhatsApp. Our foot traffic doubled.”</p>
+            <p class="mt-3 mb-0 fw-bold">Grace M.</p>
+            <small class="text-muted">AfyaCare Clinic</small>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center px-3 px-md-5">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/person-circle.svg"
+                 alt="Martin K." width="80" height="80" class="mb-3 rounded-circle">
+            <p class="lead fw-normal fst-italic">“Their team automated our contact forms and client reminders — we now follow up faster, and no leads fall through the cracks.”</p>
+            <p class="mt-3 mb-0 fw-bold">Martin K.</p>
+            <small class="text-muted">Mwana & Co. Advocates</small>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="carousel-item">
+          <div class="d-flex flex-column align-items-center px-3 px-md-5">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/person-circle.svg"
+                 alt="Joan N." width="80" height="80" class="mb-3 rounded-circle">
+            <p class="lead fw-normal fst-italic">“They helped us go digital with a professional one-page website linked to WhatsApp. It’s boosted member signups and made us look legit.”</p>
+            <p class="mt-3 mb-0 fw-bold">Joan N.</p>
+            <small class="text-muted">Bidii SACCO</small>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h3 class="mb-3">📘 Free Guide: 5 Ways to Automate a Business in Kenya</h3>
+    <p class="mb-4">Enter your details to receive your free image-based guide to business automation in Kenya.</p>
+
+    <form id="leadForm" class="row justify-content-center" style="max-width: 600px; margin: 0 auto;">
+      <div class="col-12 mb-3">
+        <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+      </div>
+      <div class="col-12 mb-3">
+        <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary btn-lg">View the Free Guide</button>
+      </div>
+    </form>
+
+    <!-- Hidden image preview -->
+    <div id="guideImage" class="mt-5 d-none">
+      <a href="images/automation-guide.webp.webp" target="_blank">
+        <img src="images/automation-guide.webp.webp" alt="5 Ways to Automate Guide" class="img-fluid rounded shadow" style="max-width: 600px;">
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("leadForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    fetch("https://script.google.com/macros/s/AKfycbwfMDHiNgTPsfK1zUApH-3IyVGFrlW-unxP7lnr7L2d1WzgaDtxmejVKgQ_7BE6mCHh/exec", {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        source: "Homepage Downloads"
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      // Show the image
+      document.getElementById("guideImage").classList.remove("d-none");
+    })
+    .catch(err => alert("There was an error: " + err));
+  });
+</script>
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <div class="mb-3">
+  <a href="https://www.tiktok.com/@yourhandle" target="_blank" class="text-white me-3">
+    <i class="fab fa-tiktok fa-lg"></i>
+     </a>
+     <a href="https://www.instagram.com/yourhandle" target="_blank" class="text-white me-3">
+       <i class="fab fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://www.facebook.com/yourhandle" target="_blank" class="text-white me-3">
+      <i class="fab fa-facebook fa-lg"></i>
+       </a>
+      <a href="https://www.linkedin.com/in/yourhandle" target="_blank" class="text-white me-3">
+      <i class="fab fa-linkedin fa-lg"></i>
+      </a>
+     <a href="https://x.com/yourhandle" target="_blank" class="text-white">
+       <i class="fab fa-x-twitter fa-lg"></i>
+      </a>
+    </div>
+
+      <p>&copy; 2025 smartbizsystems.africa. All rights reserved.</p>
+      <a href="privacy.html" class="text-white me-3">Privacy Policy</a>
+      <a href="terms.html" class="text-white">Terms & Conditions</a>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      palette: {
+        popup: {
+          background: "#03045e",
+          text: "#ffffff"
+        },
+        button: {
+          background: "#ffba08",
+          text: "#03045e"
+        }
+      },
+      theme: "classic",
+      position: "bottom",
+      content: {
+        message: "We use cookies to ensure you get the best experience on our website.",
+        dismiss: "Got it!",
+        link: "Learn more",
+        href: "privacy.html"
+      }
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const form = document.getElementById("botForm");
+  const chatBox = document.getElementById("chatBox");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("userName").value.trim();
+    const message = document.getElementById("userMessage").value.trim();
+
+    if (!message) return;
+
+    // Show user bubble
+    const userBubble = document.createElement("div");
+    userBubble.className = "text-end mb-2";
+    userBubble.innerHTML = `<div class="d-inline-block px-3 py-2 rounded text-white" style="background-color: #0077b6;">👤 ${message}</div>`;
+    chatBox.appendChild(userBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Clear message input
+    document.getElementById("userMessage").value = "";
+
+    // Show loading bot bubble
+    const loadingBubble = document.createElement("div");
+    loadingBubble.className = "text-start mb-2";
+    loadingBubble.innerHTML = `<div class="d-inline-block px-3 py-2 rounded text-white" style="background-color: #6c757d;">🤖 SmartBizBot is typing...</div>`;
+    chatBox.appendChild(loadingBubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+      const res = await fetch("https://smartbizsystemes.app.n8n.cloud/webhook-test/smartbizbot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, message })
+      });
+
+      const data = await res.json();
+      const botReply = data.message || "⚠️ I didn’t quite get that. Please try again.";
+
+      loadingBubble.remove();
+
+      const botBubble = document.createElement("div");
+      botBubble.className = "text-start mb-2";
+      botBubble.innerHTML = `<div class="d-inline-block px-3 py-2 rounded border" style="background-color: #f1f1f1; color: #03045e;">🤖 ${botReply}</div>`;
+      chatBox.appendChild(botBubble);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+    } catch (err) {
+      loadingBubble.remove();
+      const errorBubble = document.createElement("div");
+      errorBubble.className = "text-start mb-2 text-danger";
+      errorBubble.innerText = "❌ Something went wrong. Please try again.";
+      chatBox.appendChild(errorBubble);
+    }
+  });
+</script>
+</body>
+</html>
